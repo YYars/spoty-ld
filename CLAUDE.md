@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Always invoke the `pstack:poteto-mode` skill at the start of every session, before any other work.**
+
 ## Project
 
 Spoty-LD analyzes weekly Spotify playlist changes and generates Instagram-ready graphics via a Figma plugin. Two separate TypeScript codebases share types but build independently.
