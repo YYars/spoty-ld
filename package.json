@@ -1,0 +1,40 @@
+{
+  "name": "spoty-ld",
+  "version": "1.0.0",
+  "description": "Spotify playlist analytics for Instagram graphics",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "analyze": "node --import tsx src/index.ts",
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
+    "check:all": "npm run typecheck && npm run lint && npm run format:check",
+    "precommit": "npm run typecheck && npm run lint && npm run format:check",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@spotify/web-api-ts-sdk": "1.2.0",
+    "dotenv": "17.2.3",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "25.1.0",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/parser": "7.18.0",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.2",
+    "prettier": "3.8.1",
+    "ts-node": "10.9.2",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vitest": "4.0.18"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Spotify Playlist Graphics",
+  "id": "spotify-playlist-graphics",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": ["figma"],
+  "networkAccess": {
+    "allowedDomains": ["https://i.scdn.co", "https://scannables.scdn.co"]
+  }
+}
