@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript"],
+  "ignorePatterns": ["dist/**", "figma-plugin/**"],
+  "rules": {
+    "typescript/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    "typescript/no-explicit-any": "warn",
+    "typescript/no-non-null-assertion": "warn",
+
+    "prefer-const": "error",
+    "no-var": "error",
+    "eqeqeq": ["error", "always"],
+    "curly": ["error", "all"],
+
+    "typescript/prefer-nullish-coalescing": "warn",
+    "typescript/prefer-optional-chain": "warn",
+    "typescript/no-floating-promises": "error",
+    "typescript/await-thenable": "error",
+    "typescript/no-misused-promises": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/**"],
+      "rules": { "typescript/no-non-null-assertion": "off" }
+    }
+  ]
+}

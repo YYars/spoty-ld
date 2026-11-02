@@ -8,14 +8,12 @@
     "build:ui": "cp src/ui.html dist/ui.html",
     "watch": "bun build src/code.ts --outfile dist/code.js --target browser --watch",
     "dev": "bun run build && echo 'Plugin built! Import manifest.json in Figma'",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint": "oxlint src",
+    "lint:fix": "oxlint --fix src"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.98.0",
-    "@typescript-eslint/eslint-plugin": "^8.72.1",
-    "@typescript-eslint/parser": "^8.72.1",
-    "eslint": "^9.39.5",
+    "oxlint": "^1.88.0",
     "typescript": "^5.3.0"
   }
 }

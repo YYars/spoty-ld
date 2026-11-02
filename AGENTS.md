@@ -39,7 +39,8 @@ spoty-ld/
 │   │   ├── types.ts               # Type definitions
 │   │   └── ui.html                # Plugin UI
 │   ├── manifest.json              # Figma config
-│   ├── eslint.config.js           # Linting rules
+│   ├── .oxlintrc.json             # Linting rules
+│   ├── lint/figma-sandbox.js      # Custom Oxlint sandbox rules
 │   └── dist/                      # Compiled output
 │
 ├── data/history/                  # Weekly analysis JSON outputs
@@ -114,7 +115,7 @@ Score = weighted average (0-100)
 
 ## Figma Plugin Sandbox Constraints
 
-**CRITICAL**: Figma's JS sandbox uses older JavaScript. ESLint rules enforce:
+**CRITICAL**: Figma's JS sandbox uses older JavaScript, and `bun build` does not downlevel syntax. Custom Oxlint rules in `figma-plugin/lint/figma-sandbox.js` enforce:
 
 - **No spread syntax**: `{ ...obj }` → Use `Object.assign()` or explicit properties
 - **No optional catch**: `catch { }` → Use `catch (e) { }` or `catch (_e) { }`
@@ -229,7 +230,7 @@ Keep types in sync between:
 ### Linting and Formatting
 
 **Main Application:**
-- ESLint with TypeScript plugin for code quality
+- Oxlint with type-aware TypeScript rules (`--type-aware`, via tsgolint)
 - Prettier for consistent code formatting
 - Strict TypeScript mode enabled
 - Promise/async rules to catch common bugs
@@ -237,7 +238,7 @@ Keep types in sync between:
 - Optional chaining (`?.`) for safer property access
 
 **Figma Plugin:**
-- ESLint with Figma sandbox compatibility rules
+- Oxlint with Figma sandbox compatibility rules (JS plugin)
 - No spread syntax allowed (use `Object.assign()`)
 - No optional catch binding (use `catch (e)` or `catch (_e)`)
 

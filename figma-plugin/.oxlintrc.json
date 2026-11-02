@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript"],
+  "jsPlugins": ["./lint/figma-sandbox.js"],
+  "ignorePatterns": ["dist/**"],
+  "rules": {
+    "figma-sandbox/no-spread": "error",
+    "figma-sandbox/no-optional-catch-binding": "error",
+    "typescript/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "caughtErrorsIgnorePattern": "^_" }
+    ]
+  }
+}

@@ -15,8 +15,8 @@ Spoty-LD analyzes weekly Spotify playlist changes and generates Instagram-ready 
 npm run analyze          # Run the analyzer (fetches Spotify data, outputs JSON)
 npm run build            # Compile TypeScript
 npm run typecheck        # Type check without emitting
-npm run lint             # ESLint check
-npm run lint:fix         # ESLint auto-fix
+npm run lint             # Oxlint check (type-aware)
+npm run lint:fix         # Oxlint auto-fix
 npm run format           # Prettier format
 npm run format:check     # Prettier check
 npm run check:all        # All checks: typecheck + lint + format:check
@@ -27,7 +27,7 @@ npm run check:all        # All checks: typecheck + lint + format:check
 cd figma-plugin
 bun run build            # Lint + compile (Bun bundler, ES2015 target)
 bun run watch            # Watch mode
-bun run lint             # ESLint check
+bun run lint             # Oxlint check (Figma sandbox rules)
 ```
 
 ## Architecture
@@ -52,9 +52,9 @@ bun run lint             # ESLint check
 
 - **Functional style**: pure functions, readonly types, immutable data, `reduce`/`map`/`filter` over loops
 - **Strict TypeScript**: all strict checks enabled, prefix unused vars with `_`
-- **ESLint rules**: prefer `const`, always `===`, no floating promises, use `?.` and `??`
+- **Lint rules** (Oxlint, `.oxlintrc.json`): prefer `const`, always `===`, no floating promises, use `?.` and `??`
 - **Figma plugin sandbox constraints**: no spread syntax (`{...obj}` → `Object.assign()`), no optional catch binding (`catch {}` → `catch (_e) {}`)
 
 ## Environment
 
-Requires `.env` with `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_PLAYLIST_ID`. See `.env.example`.
+Requires Node 26 (`nvm use`, see `.nvmrc`); Oxlint's native binary needs Node >= 20.19. Requires `.env` with `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_PLAYLIST_ID`. See `.env.example`.
