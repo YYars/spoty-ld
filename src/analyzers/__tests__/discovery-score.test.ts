@@ -16,8 +16,8 @@ const makeTrack = (popularity: number): PlaylistedTrack => ({
 });
 
 describe("calculateDiscoveryScore", () => {
-  it("returns 100 for all underground tracks (popularity < 40)", () => {
-    const tracks = [makeTrack(10), makeTrack(20), makeTrack(30)];
+  it("returns 100 for all underground tracks (popularity < 20)", () => {
+    const tracks = [makeTrack(5), makeTrack(10), makeTrack(15)];
     const result = calculateDiscoveryScore(tracks);
     expect(result.score).toBe(100);
     expect(result.undergroundPicks).toBe(3);
@@ -33,7 +33,7 @@ describe("calculateDiscoveryScore", () => {
     expect(result.undergroundPicks).toBe(0);
   });
 
-  it("returns 50 for all mid-tier tracks (40-59)", () => {
+  it("returns 50 for all mid-tier tracks (20-59)", () => {
     const tracks = [makeTrack(45), makeTrack(50), makeTrack(55)];
     const result = calculateDiscoveryScore(tracks);
     expect(result.score).toBe(50);

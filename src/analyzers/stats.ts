@@ -36,7 +36,9 @@ const findDeepCuts = (sortedTracks: readonly PlaylistedTrack[]): readonly TrackH
   });
 
   // Fallback: if no tracks qualify, use the single least popular track
-  return uniqueDeepCuts.length > 0 ? uniqueDeepCuts : [toTrackHighlight(sortedTracks[sortedTracks.length - 1])];
+  return uniqueDeepCuts.length > 0
+    ? uniqueDeepCuts
+    : [toTrackHighlight(sortedTracks[sortedTracks.length - 1])];
 };
 
 /**
